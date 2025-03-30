@@ -2,7 +2,7 @@
 pragma solidity 0.8.26;
 
 import "../lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
-import "../lib/openzeppelin-contracts/contracts/utils/Strings.sol";
+import {Strings} from "../lib/openzeppelin-contracts/contracts/utils/Strings.sol";
 
 contract BasicNft is ERC721 {
 using Strings for uint256;
@@ -14,7 +14,7 @@ uint256 totalSuply ;
 event NftMinted(uint256 indexed tokenId, address indexed owner);
 
 
-constructor( string memory baseUri_, uint256 totalSuply_ ,string memory name_, string memory symbol_) ERC721(name_ , symbol_) {
+constructor(string memory name_, string memory symbol_, string memory baseUri_, uint256 totalSuply_) ERC721(name_ , symbol_) {
     tokenCounter = 0;
     baseUri = baseUri_;
     totalSuply = totalSuply_;
