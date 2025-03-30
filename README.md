@@ -1,66 +1,65 @@
-## Foundry
+# 🕶️ DARK LAYER – ERC-721 NFT Collection
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**DARK LAYER** is a secure, efficient, and gas-optimized NFT collection built on the ERC-721 standard. Developed with Solidity and powered by OpenZeppelin libraries, this smart contract allows users to mint unique NFTs until the defined maximum supply is reached.
 
-Foundry consists of:
+> 🧾 Deployed Contract:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+> [View on Arbiscan](https://arbiscan.io/address/0xeb1cba8a9546bb96db2a626e85d374abee248bd3)
+> [View on OpenSea](https://opensea.io/es/0x3207D31e5862F616AA92702a1C38A45e23bCF7b0)
 
-## Documentation
 
-https://book.getfoundry.sh/
+---
 
-## Usage
+## 🚀 Key Features
 
-### Build
+| Feature                 | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| 🎭 **ERC-721 Standard** | Fully compliant with the non-fungible token standard.                       |
+| 🎨 **NFT Minting**       | Users can mint NFTs up to the maximum collection supply.                   |
+| 🔗 **Dynamic Base URI**  | Metadata is served using the format `<baseURI><tokenId>.json`.             |
+| 📢 **Event Emission**    | Emits a `MintNFT` event every time a token is successfully minted.         |
 
-```shell
-$ forge build
-```
+---
 
-### Test
+## 🔧 Smart Contract Functions
 
-```shell
-$ forge test
-```
+| Function              | Description                                                               |
+|------------------------|---------------------------------------------------------------------------|
+| `safeMint()`           | Allows users to mint a new NFT, ensuring the supply cap is respected.    |
+| `_baseURI()`           | Returns the base URI used for metadata resolution.                       |
+| `tokenURI(uint256)`    | Returns the complete URI for the given token ID.                         |
 
-### Format
+---
 
-```shell
-$ forge fmt
-```
+## 📡 Events
 
-### Gas Snapshots
+| Event                          | Description                                                        |
+|--------------------------------|--------------------------------------------------------------------|
+| `MintNFT(address, uint256)`    | Emitted when a new NFT is minted and assigned to a wallet.        |
 
-```shell
-$ forge snapshot
-```
+---
 
-### Anvil
+## ⚙️ Project Setup with Foundry
 
-```shell
-$ anvil
-```
+### 🔧 Prerequisites
 
-### Deploy
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed  
+- Ethereum wallet (e.g., MetaMask)  
+- Testnet ETH if deploying to a test network  
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+### 📦 Installation & Usage
 
-### Cast
+```bash
+# Clone the repository
+git clone https://github.com/Vicent00/DARK-LAYER-NFT.git
+cd dark-layer
 
-```shell
-$ cast <subcommand>
-```
+# Install dependencies (if using external libraries)
+forge install
 
-### Help
+# Build the contract
+forge build
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+# Deploy (example using a local or testnet environment)
+forge script script/Deploy.s.sol --rpc-url <YOUR_RPC_URL> --private-key <YOUR_PRIVATE_KEY> --broadcast
+
